@@ -1,4 +1,5 @@
 #Beginner Lab - 27/04/2025 
+#Lab [LAME] <Beginner> TARGET: 10.10.10.3
 
 1. How many of the nmap top 1000 TCP ports are open on the remote host?
   nmap 10.10.10.3
@@ -6,6 +7,10 @@
 
 2. What version of VSFTPd is running on Lame?
    ftp 10.10.10.3
-   There are different ways to detect VSFTPd versions - something like <VSFTPd -version> doesn't always work.
+   There are different ways to detect VSFTPd versions - something like <VSFTPd -version> only really works if you 
+   have local access.
    I connected directly to the ftp using the above command. This shows the VSFTPd version in the banner.
    
+3. What version of Samba is running on Lame? Give the numbers up to but not including "-Debian".
+  smbclient -L //10.10.10.3 -N
+  Tried running [nmap -sV -p 445 10.10.10.3] results show 3.X - 4.X - nmap couldn't detect the exact version
