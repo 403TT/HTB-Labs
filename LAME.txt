@@ -7,7 +7,7 @@ Service enumeration, vulnerability exploitation (VSFTPD, Samba), privilege escal
 
 1. How many of the nmap top 1000 TCP ports are open on the remote host?
 Command used:
-sudo nmap 10.10.10.3
+sudo nmap -sV 10.10.10.3
 Result:
 Four TCP ports were found open.
 
