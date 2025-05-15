@@ -1,0 +1,36 @@
+Hack The Box: UnderPass – Write-up
+Target IP: 10.10.11.48
+Difficulty: Easy
+Techniques Used: Port scanning, SNMP enumeration
+
+1. How many open TCP ports are listening on UnderPass?
+Command Used:
+sudo nmap -sV -T4 10.10.11.48
+
+Result:
+22/tcp open ssh OpenSSH
+80/tcp open http Apache httpd 2.4.52
+
+Answer:
+2 TCP ports are open: 22 (SSH) and 80 (HTTP)
+
+2. What UDP port in the Nmap top 100 ports is open on UnderPass?
+Command Used:
+sudo nmap -sU --top-ports 100 -T4 --max-retries 10 10.10.11.48
+
+Result:
+UDP port 161 is open
+
+Answer:
+161/UDP (typically used for SNMP)
+
+3. What email address does the UnderPass server list as its contact email?
+Command Used:
+snmpwalk -v2c -c public 10.10.11.48
+
+Result:
+One of the SNMP fields revealed the contact email:
+steve@underpass.htb
+
+Answer:
+steve@underpass.htb
